@@ -1,0 +1,8 @@
+README.md
+setup.py
+coop_utils/__init__.py
+coop_utils/calculator.py
+coop_utils.egg-info/PKG-INFO
+coop_utils.egg-info/SOURCES.txt
+coop_utils.egg-info/dependency_links.txt
+coop_utils.egg-info/top_level.txt
