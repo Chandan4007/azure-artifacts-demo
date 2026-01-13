@@ -1,0 +1,27 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  IMAGE_NAME: fastapi-artifacts-demo
+
+steps:
+
+# 1. Authenticate Azure Artifacts for pip
+- task: PipAuthenticate@1
+  displayName: Authenticate to Azure Artifacts
+  inputs:
+    artifactFeeds: coop-python-feed
+
+# 2. Docker build
+- task: Docker@2
+  displayName: Build Docker Image
+  inputs:
+    command: build
+    Dockerfile: Dockerfile
+    buildContext: .
+    repository: $(IMAGE_NAME)
+    tags: |
+      $(Build.BuildId)
